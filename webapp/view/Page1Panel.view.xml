@@ -11,7 +11,7 @@
                 <FormattedText
 					htmlText="Hello {/recipient/name}"
 					class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
-                <Button text="Go to another page" press=".onGoPage" class="sapUiTinyMarginBottom" />
+                <Button text="Go to another page" press=".onGoPage('container-testapp---app--page2')" class="sapUiTinyMarginBottom" />
                 <!-- <Button text="{i18n>showHiButtonText}" press=".onShowHi" class="sapUiTinyMarginTop" /> -->
             </VBox>
         </content>

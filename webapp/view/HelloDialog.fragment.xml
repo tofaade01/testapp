@@ -5,10 +5,12 @@
       id="helloDialog"
       title="Hello {/recipient/name}">
     <content>
-        <core:Icon
-            src="sap-icon://hello-world"
-            size="8rem"
-            class="sapUiMediumMargin"/>
+    <!-- <Image
+      src="https://images.noiceid.cc/catalog/300x300/catalog-1682286956278"
+      width="8rem"
+      class="sapUiMediumMargin" /> -->
+      
+      <core:HTML content='&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/eNHoh4h3chk?autoplay=1" title="The Legal Answer to the Trolley Problem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen /iframe&gt;'/> 
     </content>
 
       <buttons>

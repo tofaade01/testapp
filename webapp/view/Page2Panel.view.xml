@@ -7,7 +7,7 @@
             <VBox class="sapUiSmallMargin sapUiContentPadding" alignItems="Stretch" justifyContent="Start" >
                 <Button text="{i18n>showHiButtonText}" press=".onShowHi" class="sapUiTinyMarginTop" />
                 <Input value="{/recipient/name}" description="{/recipient/name}" valueLiveUpdate="true" width="70%" />
-                <Button text="Go to another page" press=".onGoPage" class="sapUiTinyMarginBottom" />
+                <Button text="Go to another page" press=".onGoPage('container-testapp---app--page1')" class="sapUiTinyMarginBottom" />
             </VBox>
         </content>
     </Panel>

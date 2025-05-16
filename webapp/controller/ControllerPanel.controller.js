@@ -33,21 +33,18 @@ sap.ui.define([
              width: "20em"
          });
      },
-     onGoPage() {
-        const app = this.getOwnerComponent().getRootControl().byId("myApps");
+     onGoPage(sTargetPage) {
+        const app = this.getOwnerComponent().getRootControl().byId("myApp");
         console.log(app);
-        if (app.getCurrentPage().getId() === "container-testapp---app--pages1") {
-            app.to("container-testapp---app--pages2");
-        } else {
-            app.to("container-testapp---app--pages1");
-        }
+        app.to(sTargetPage);
     },
+    
     async onOpenDialog() {
         // create dialog lazily
         this.oDialog ??= await this.loadFragment({
             name: "testapp.view.HelloDialog"
         });
-    
+        
         this.oDialog.open();
     },
     onCloseDialog() {

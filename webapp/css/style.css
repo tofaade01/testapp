@@ -16,3 +16,15 @@ html[dir="ltr"] .myAppDemoWT .myCustomButton.sapMBtn .sapMBtnInner {
     font-weight: bold;
  }
  
+ .strikethrough .sapMObjLAttrDiv {
+    text-decoration: line-through;
+    display: flex;
+    justify-content: end;
+}
+
+.discounted .sapMObjLAttrDiv .sapMObjectAttributeDiv {
+    font-weight: bold;
+    color: #aa0808;
+    display: flex;
+    justify-content: end;
+}
