@@ -28,3 +28,10 @@ html[dir="ltr"] .myAppDemoWT .myCustomButton.sapMBtn .sapMBtnInner {
     display: flex;
     justify-content: end;
 }
+/*  ProductRating */
+.myAppDemoWTProductRating {
+   padding: 0.75rem;
+}
+.myAppDemoWTProductRating .sapMRI {
+   vertical-align: initial;
+}

@@ -12,25 +12,28 @@ sap.ui.define([
 			const oViewModel = new JSONModel({
 				currency: "EUR"
 			});
-			this.getView().setModel(oViewModel, "view");
-            const oList = this.byId("invoiceList");
-            const oSorter = new sap.ui.model.Sorter("ExtendedPrice", false, function (oContext) {
-                return {
-                key : oContext.getProperty("ExtendedPrice") > 20 ? "MAHAL COY" : "MURAH COY",
-                text : oContext.getProperty("ExtendedPrice") > 20 ? "MAHAL COY" : "MURAH COY"
-                }
-            });
+			this.getOwnerComponent().setModel(oViewModel, "view");
+			this.getOwnerComponent().getModel("view").setProperty("/isRemoteData", false);
+            // const oList = this.byId("invoiceList");
+            // const oSorter = new sap.ui.model.Sorter("ExtendedPrice", false, function (oContext) {
+            //     return {
+            //     key : oContext.getProperty("ExtendedPrice") > 20 ? "MAHAL COY" : "MURAH COY",
+            //     text : oContext.getProperty("ExtendedPrice") > 20 ? "MAHAL COY" : "MURAH COY"
+            //     }
+            // });
 
-            oList.bindItems({
-                path: "invoice>/Invoices",
-                sorter: oSorter,
-                template: new sap.m.ObjectListItem({
-                    title: "{invoice>ProductName}",
-                    number: "{invoice>ExtendedPrice}",
-                    numberUnit: "{view>/currency}",
-                    numberState: "{= ${invoice>ExtendedPrice} > 20 ? 'Error' : 'Success'}",
-                })
-            });
+            // oList.bindItems({
+            //     path: "invoice>/Invoices",
+            //     sorter: oSorter,
+            //     template: new sap.m.ObjectListItem({
+            //         title: "{invoice>ProductName}",
+            //         number: "{invoice>ExtendedPrice}",
+            //         numberUnit: "{view>/currency}",
+            //         numberState: "{= ${invoice>ExtendedPrice} > 20 ? 'Error' : 'Success'}",
+			// 		type: "Navigation",
+			// 		press: this.onPress.bind(this)
+            //     })
+            // });
     	},
         onFilterInvoices(oEvent) {
 			// build filter array
@@ -54,8 +57,10 @@ sap.ui.define([
 			this.onInit();
 			this._clearFilter();
 			const oModel = this.getOwnerComponent().getModel("invoice");
+			const oViewModel = this.getOwnerComponent().getModel("view");
 			if (oModel) {
 				this.getView().setModel(oModel, "invoice");
+				oViewModel.setProperty("/isRemoteData", false);
 				MessageToast.show("Local data loaded successfully!");
 			}
             // const oList = this.byId("invoiceList");
@@ -81,8 +86,10 @@ sap.ui.define([
 			this.onInit();
 			this._clearFilter();
 			const oModel = this.getOwnerComponent().getModel("invoiceRemote");
+			const oViewModel = this.getOwnerComponent().getModel("view");
 			if (oModel) {
 				this.getView().setModel(oModel, "invoice");
+				oViewModel.setProperty("/isRemoteData", true);
 				MessageToast.show("Remote data loaded successfully!");
 			}
             // const oList = this.byId("invoiceList");
@@ -108,10 +115,13 @@ sap.ui.define([
 			const sField = this.byId("searchField");
 			sField.setValue("");
 		},
-		onPress() {
+		onPress(oEvent) {
+			const oItem = oEvent.getSource();
 			const oRouter = this.getOwnerComponent().getRouter();
-			console.log(oRouter);
-			oRouter.navTo("detail");
+			// console.log(oRouter);
+			oRouter.navTo("detail", {
+				invoiceId: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
+			});
 		}
 	});
 });
