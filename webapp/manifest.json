@@ -8,7 +8,20 @@
       "type": "application",
       "applicationVersion": {
         "version": "1.0.0"
-      }
+      },
+      "dataSources": {
+      "invoiceList": {
+        "type": "OData",
+        "uri": "Invoices.json"
+      },
+			"invoiceRemote": {
+				"uri": "V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
     },
     "sap.ui": {
       "technology": "UI5",
@@ -36,8 +49,11 @@
           }
         },
         "invoice": {
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "Invoices.json"
+          "type": "sap.ui.model.json.JSONModel",
+          "uri": "Invoices.json"
+        },
+        "invoiceRemote": {
+        "dataSource": "invoiceRemote" 
       }
       },
       "rootView": {
@@ -51,6 +67,38 @@
                 "uri": "css/style.css"
             }
         ]
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "type": "View",
+          "viewType": "XML",
+          "path": "testapp.view",
+          "controlId": "app",
+          "controlAggregation": "pages"
+        },
+        "routes": [
+          {
+            "pattern": "",
+            "name": "overview",
+            "target": "overview"
+          },
+          {
+            "pattern": "detail",
+            "name": "detail",
+            "target": "detail"
+          }
+        ],
+        "targets": {
+          "overview": {
+            "id": "overview",
+            "name": "Overview"
+          },
+          "detail": {
+            "id": "detail",
+            "name": "Detail"
+          }
+        }
       }
     }
   }

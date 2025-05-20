@@ -42,7 +42,7 @@ sap.ui.define([
           this.setModel(i18nModel2, "i18n2");
           this.setModel(i18nModel, "i18n");
           // create the views based on the url/hash
-        //   this.getRouter().initialize();
+          this.getRouter().initialize();
          }
     });
  });
