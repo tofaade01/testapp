@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/resource/ResourceModel"
- ], (UIComponent, JSONModel, ResourceModel) => {
+    "sap/ui/model/resource/ResourceModel",
+    "sap/ui/Device"
+ ], (UIComponent, JSONModel, ResourceModel, Device) => {
     "use strict";
  
     return UIComponent.extend("testapp/Component", {
@@ -41,8 +42,15 @@ sap.ui.define([
         });
           this.setModel(i18nModel2, "i18n2");
           this.setModel(i18nModel, "i18n");
+
+          const oDeviceModel = new JSONModel(Device);
+          oDeviceModel.setDefaultBindingMode("OneWay");
+          this.setModel(oDeviceModel, "device");
           // create the views based on the url/hash
           this.getRouter().initialize();
-         }
+         },
+         getContentDensityClass() {
+            return !Device.support.touch ? "sapUiSizeCompact" : "sapUiSizeCozy";
+        }
     });
  });

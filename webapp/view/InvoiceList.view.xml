@@ -6,7 +6,15 @@
    <Button text="Local Data" press=".onLocalData()" />
    <Button text="Remote Data" press=".onRemoteData()" class="sapUiSmallMarginBegin"/>
    </Panel>
-   <Table id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{
+   <Panel accessibleRole="Region">
+   <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search=".onFilterInvoices" id="searchField"/>
+         </Toolbar>
+      </headerToolbar>
+   <Table id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{
       path: 'invoice>/Invoices',
       sorter:[{
       path: 'ShipperName',
@@ -16,13 +24,6 @@
       descending: true
       }]
       }">
-      <headerToolbar>
-         <Toolbar>
-            <Title text="{i18n>invoiceListTitle}"/>
-            <ToolbarSpacer/>
-            <SearchField width="50%" search=".onFilterInvoices" id="searchField"/>
-         </Toolbar>
-      </headerToolbar>
       <columns>
 			<Column
 				hAlign="End"
@@ -92,4 +93,5 @@
 			</ColumnListItem>
 		</items>
    </Table>
+   </Panel>
 </mvc:View>

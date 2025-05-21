@@ -3,6 +3,15 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
     <Page title="{i18n>pageTitle}" >
+        <landmarkInfo>
+			<PageAccessibleLandmarkInfo
+				rootRole="Region"
+				rootLabel="{i18n>Overview_rootLabel}"
+				contentRole="Main"
+				contentLabel="{i18n>Overview_contentLabel}"
+				headerRole="Banner"
+				headerLabel="{i18n>Overview_headerLabel}"/>
+		</landmarkInfo>
         <content>
             <mvc:XMLView viewName="testapp.view.Page1Panel"/>
             <mvc:XMLView viewName="testapp.view.InvoiceList"/>

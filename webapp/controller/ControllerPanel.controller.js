@@ -35,7 +35,7 @@ sap.ui.define([
      },
      onGoPage(sTargetPage) {
         const app = this.getOwnerComponent().getRootControl().byId("app");
-        // console.log(app);
+        console.log(app);
         app.to(sTargetPage);
     },
     
