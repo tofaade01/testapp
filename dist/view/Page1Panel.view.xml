@@ -1,0 +1,19 @@
+<mvc:View
+   controllerName="testapp.controller.ControllerPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Panel headerText="{i18n>panelHeaderText}" class="sapUiResponsiveMargin" width="auto" expandable="{device>/system/phone}"
+		expanded="{= !${device>/system/phone} }" accessibleRole="Region">
+        <content>
+            <VBox class="sapUiSmallMargin sapUiContentPadding" alignItems="Stretch" justifyContent="Start" >
+                <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="myCustomButton"  />
+                <Button id="helloDialogButton" text="{i18n>openDialogButtonText}" press=".onOpenDialog" class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"/>
+                <Input value="{/recipient/name}" description="{/recipient/name}" valueLiveUpdate="true" width="70%" />
+                <FormattedText
+					htmlText="Hello {/recipient/name}"
+					class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+                <!-- <Button text="{i18n>showHiButtonText}" press=".onShowHi" class="sapUiTinyMarginTop" /> -->
+            </VBox>
+        </content>
+    </Panel>
+</mvc:View>

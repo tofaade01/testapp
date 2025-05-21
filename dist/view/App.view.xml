@@ -1,0 +1,23 @@
+<mvc:View
+   controllerName="testapp.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+   <Shell backgroundImage="https://www.shutterstock.com/shutterstock/photos/2274412231/display_1500/stock-vector-many-rainbow-gradient-random-bright-soft-balls-background-colorful-balls-background-for-kids-zone-2274412231.jpg" class="sapUiContentPadding">
+    <App id="app" class="myAppDemoWT">
+       <mvc:XMLView viewName="testapp.view.Overview"/>
+        <!-- <pages>
+            <Page id="page1" title="{i18n>pageTitle}" >
+                <content>
+                    <mvc:XMLView viewName="testapp.view.Page1Panel"/>
+                    <mvc:XMLView viewName="testapp.view.InvoiceList"/>
+                </content>
+            </Page>
+            <Page id="page2" title="{i18n>pageTitle2}" >
+                <content>
+                    <mvc:XMLView viewName="testapp.view.Page2Panel"/>
+                </content>
+            </Page>
+        </pages> -->
+        </App>
+    </Shell>
+</mvc:View>

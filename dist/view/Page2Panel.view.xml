@@ -1,0 +1,14 @@
+<mvc:View
+   controllerName="testapp.controller.ControllerPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="{i18n>panelHeaderText2}" class="sapUiContentPadding">
+        <content>
+            <VBox class="sapUiSmallMargin sapUiContentPadding" alignItems="Stretch" justifyContent="Start" >
+                <Button text="{i18n>showHiButtonText}" press=".onShowHi" class="sapUiTinyMarginTop" />
+                <Input value="{/recipient/name}" description="{/recipient/name}" valueLiveUpdate="true" width="70%" />
+                <Button text="Go to another page" press=".onGoPage('container-testapp---app--page1')" class="sapUiTinyMarginBottom" />
+            </VBox>
+        </content>
+    </Panel>
+</mvc:View>

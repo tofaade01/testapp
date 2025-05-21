@@ -1,0 +1,1 @@
+{"version":3,"file":"App.controller.js","names":["sap","ui","define","Controller","extend","onInit","this","getView","addStyleClass","getOwnerComponent","getContentDensityClass"],"sources":["App-dbg.controller.js"],"mappings":"AAAAA,IAAIC,GAAGC,OAAO,CAAC,+BAAiCC,IAC9C,aAEA,OAAOA,EAAWC,OAAO,yBAA0B,CACjD,MAAAC,GACIC,KAAKC,UAAUC,cAAcF,KAAKG,oBAAoBC,yBAe1D,GACA","ignoreList":[]}
